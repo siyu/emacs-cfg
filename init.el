@@ -10,7 +10,7 @@
 ;(set-face-attribute 'default nil :height 130)
 ;(load-theme 'zenburn t)
 
-(set-face-attribute 'default nil :font "Consolas-11")
+(set-face-attribute 'default nil :font "Consolas-12")
 
 (load-file (concat (file-name-as-directory (concat user-emacs-directory "non-elpa")) "cyberpunk.el"))
 (global-hl-line-mode 1)
@@ -24,6 +24,18 @@
 
 ;; find-file-in-project
 (global-set-key (kbd "C-x f") 'find-file-in-project)
+
+;; auto-complete
+(require 'ac-nrepl)
+(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+(add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'nrepl-mode))
+
+;; rainbow-delimiter
+(require 'rainbow-delimiters)
+(dolist (x '(scheme emacs-lisp lisp clojure))
+  (add-hook (intern (concat (symbol-name x) "-mode-hook")) 'rainbow-delimiters-mode))
 
 ;; nrepl
 (add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
