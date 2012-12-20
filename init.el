@@ -10,13 +10,16 @@
 ;(set-face-attribute 'default nil :height 130)
 ;(load-theme 'zenburn t)
 
-(set-face-attribute 'default nil :font "Consolas-12")
+(set-face-attribute 'default nil :font "Consolas-13")
 
 (load-file (concat (file-name-as-directory (concat user-emacs-directory "non-elpa")) "cyberpunk.el"))
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "#333333")
 (color-theme-cyberpunk)
 (set-cursor-color "yellow")
+
+;; paredit
+(require 'paredit)
 
 ;; undo-tree
 (require 'undo-tree)
@@ -35,6 +38,7 @@
 ;; rainbow-delimiter
 (require 'rainbow-delimiters)
 (dolist (x '(scheme emacs-lisp lisp clojure))
+  (add-hook (intern (concat (symbol-name x) "-mode-hook")) 'enable-paredit-mode)
   (add-hook (intern (concat (symbol-name x) "-mode-hook")) 'rainbow-delimiters-mode))
 
 ;; nrepl
