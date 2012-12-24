@@ -128,7 +128,7 @@
       (set-face-attribute 'default nil :font "Consolas-10.5")
 
       ;; blackbored color theme
-      (load-file (concat non-elpa "blackbored.el"))
+      (load-file (concat non-elpa-dir "blackbored.el"))
       (color-theme-blackbored)
       
       ;; cygwin
@@ -140,7 +140,7 @@
        '(cygwin-mount-cygwin-bin-directory "C:\\cygwin\\bin"))
       (setq exec-path (cons "C:/cygwin/bin" exec-path))
       (setenv "PATH" (concat "C:/cygwin/bin;" (getenv "PATH")))
-      (load-file (concat non-elpa "setup-cygwin.el"))
+      (load-file (concat non-elpa-dir "setup-cygwin.el"))
       (require 'setup-cygwin)
 
       ;; dos shell
