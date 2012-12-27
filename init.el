@@ -143,12 +143,16 @@
       (load-file (concat non-elpa-dir "setup-cygwin.el"))
       (require 'setup-cygwin)
 
-      ;; dos shell
+       ;; dos shell with dirtrack-mode
       (defun dos-shell ()
         "Run dos in shell mode."
         (interactive)
         (let ((explicit-shell-file-name "C:/windows/system32/cmd"))
-          (call-interactively 'shell))))
+          (call-interactively 'shell)
+          (dirtrack-mode 1)))
+ 
+      ;; override dirtrack package's dirtrack-list for list
+      (setq-default dirtrack-list '("\\([a-zA-Z]:.*\\)>" 1)))
   (progn ;; *nix & mac
     (setenv "PATH" (shell-command-to-string "source $HOME/.bashrc && printf $PATH"))))
 
