@@ -99,6 +99,10 @@
 ;; key bindings ;;
 ;;;;;;;;;;;;;;;;;;
 
+;; If you want to be able to M-x without meta
+(global-set-key (kbd "C-x C-m") 'execute-extended-command)
+(global-set-key (kbd "C-c C-m") 'execute-extended-command)
+
 ;; winner undo and redo
 (global-set-key (kbd "C-c b") 'winner-undo)
 ;(define-key nrepl-interaction-mode-map (kbd "C-c b") 'winner-undo)
