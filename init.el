@@ -6,7 +6,9 @@
 ;(set-face-attribute 'default nil :height 130)
 ;(load-theme 'zenburn t)
 
-(set-face-attribute 'default nil :font "Consolas-13")
+;;(set-face-attribute 'default nil :font "Consolas-13")
+
+(set-face-attribute 'default nil :height 130)
 
 (setq non-elpa-dir (file-name-as-directory (concat user-emacs-directory "non-elpa")))
 
