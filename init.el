@@ -6,17 +6,22 @@
 ;(set-face-attribute 'default nil :height 130)
 ;(load-theme 'zenburn t)
 
-;;(set-face-attribute 'default nil :font "Consolas-13")
-
-(set-face-attribute 'default nil :height 130)
+(set-face-attribute 'default nil :font "Consolas-13")
 
 (setq non-elpa-dir (file-name-as-directory (concat user-emacs-directory "non-elpa")))
-
 (load-file (concat non-elpa-dir "cyberpunk.el"))
+(color-theme-cyberpunk)
+;;(load-file (concat non-elpa-dir "blackbored.el"))
+;;(color-theme-blackbored)
+
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "#333333")
-(color-theme-cyberpunk)
 (set-cursor-color "yellow")
+
+;; highlight-tail
+;;(load-file (concat non-elpa-dir "highlight-tail.el"))
+;;(require 'highlight-tail)
+;;(highlight-tail-reload)
 
 ;; paredit
 (require 'paredit)
