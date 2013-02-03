@@ -30,6 +30,21 @@
 (require 'undo-tree)
 (global-undo-tree-mode)
 
+;; expand-region
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C--") 'er/contract-region)
+
+;;window-number mode
+(require 'window-number)
+(autoload 'window-number-meta-mode "window-number"
+  "A global minor mode that enables use of the M- prefix to select
+windows, use `window-number-mode' to display the window numbers in
+the mode-line."
+  t)
+(window-number-meta-mode 1)
+
+
 ;; find-file-in-project
 (global-set-key (kbd "C-x f") 'find-file-in-project)
 
